@@ -2,6 +2,7 @@ import cors from 'cors'
 import express from 'express'
 import { config } from '~/config'
 import { TestRoutes } from './resources/test/test.routes'
+import { UsersRoutes } from './resources/users/users.routes'
 
 const app = express()
 
@@ -15,6 +16,8 @@ app.use(express.urlencoded({
 app.use(cors())
 
 app.use('/test', TestRoutes)
+app.use('/users', UsersRoutes)
+
 app.get('/', (req, res) => res.send('🏠'))
 
 app.listen(config.API_PORT, () =>  console.log('Server started !'))
