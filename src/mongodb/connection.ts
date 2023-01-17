@@ -1,9 +1,6 @@
 import { MongoClient, MongoClientOptions, ServerApiVersion } from "mongodb";
 require('dotenv').config({path: './.env'});
 
-// MONGODB_URI=mongodb+srv://christophe:christophe@cluster0.i5qy4hx.mongodb.net/?retryWrites=true&w=majority
-// MONGODB_DB_NAME=woodstock
-
 const uri = process.env.MONGODB_URI || "";
 const dbName = process.env.MONGODB_DB_NAME;
 
