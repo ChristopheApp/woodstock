@@ -1,3 +1,4 @@
+import {Request, Response} from 'express'
 import dbClient from '../../mongodb/connection';
 const {Db} = require('mongodb')
 
@@ -17,5 +18,12 @@ const addUsers = async () => {
         const users = await getDb().then((db:typeof Db)=> db.collection('users').insertOne({name:'test'}));
         close();
         return users;
+    }
+}
+
+export class TestService {
+
+    testRequest = async (req:Request, res:Response) => {
+        res.status(200).json({message: 'test request'})
     }
 }
