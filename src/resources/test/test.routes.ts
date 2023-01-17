@@ -6,7 +6,7 @@ const service = new TestService();
 
 
 
-router.route('/').get(service.testRequest);
+router.route('/').get(service.testFetchUsers);
 
 router.route('/add').get((req, res) => {
     res.send('test/add');
