@@ -3,6 +3,7 @@ import express from 'express'
 import { config } from '~/config'
 import { TestRoutes } from './resources/test/test.routes'
 import { UsersRoutes } from './resources/users/users.routes'
+import { WoodsRoutes } from './resources/woods/woods.routes'
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(cors())
 
 app.use('/test', TestRoutes)
 app.use('/users', UsersRoutes)
+app.use('/woods', WoodsRoutes)
 
 app.get('/', (req, res) => res.send('🏠'))
 

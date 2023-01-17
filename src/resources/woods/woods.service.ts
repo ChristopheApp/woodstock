@@ -4,23 +4,23 @@ const {Db} = require('mongodb')
 
 const { getDb, close } = dbClient;
 
-export class UsersService {
-    
-    getAllUsers = async (req:Request, res:Response) => {
+export class WoodsServices {
+
+    getAllWoods = async (req:Request, res:Response) => {
         if (await getDb()) {
-            const users = await getDb().then((db:typeof Db)=> db.collection('users').find({}).toArray());
+            const woods = await getDb().then((db:typeof Db)=> db.collection('woods').find({}).toArray());
             close();
-            res.status(200).json(users)
+            res.status(200).json(woods)
         } else {
             res.status(500).json({message: 'Database not available'})
         }
     }
 
-    addUser = async (req:Request, res:Response) => {
+    addWood = async (req:Request, res:Response) => {
         if (await getDb()) {
-            const user = await getDb().then((db:typeof Db)=> db.collection('users').insertOne(req.body));
+            const wood = await getDb().then((db:typeof Db)=> db.collection('woods').insertOne(req.body));
             close();
-            res.status(201).json(user.insertedId)
+            res.status(201).json(wood.insertedId)
         } else {
             res.status(500).json({message: 'Database not available'})
         }
